@@ -1,6 +1,4 @@
-# Python 코드로 HTML 파일 생성
-# src: url('KimjungchulMyungjo-Light.otf') format('opentype');
-html_content = '''
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -322,10 +320,3 @@ html_content = '''
     </script>
 </body>
 </html>
-'''
-
-# 파일 저장
-with open("index.html", "w", encoding="utf-8") as file:
-    file.write(html_content)
-
-print("모바일 청첩장이 생성되었습니다: index.html")
