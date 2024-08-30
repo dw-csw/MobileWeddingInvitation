@@ -1,5 +1,6 @@
+import os
+
 # Python 코드로 HTML 파일 생성
-# src: url('KimjungchulMyungjo-Light.otf') format('opentype');
 html_content = '''
 <!DOCTYPE html>
 <html lang="ko">
@@ -137,7 +138,7 @@ html_content = '''
             font-size: 28px;
             font-weight: 100;
             color: #999999;
-            font-family: 'HancomMalangMalang', Arial, sans-serif;
+            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
         }
         
         name {
@@ -145,7 +146,7 @@ html_content = '''
             color: #777777;
             line-height: 1.6;
             font-weight: bold;
-            font-family: 'HancomMalangMalang', Arial, sans-serif;
+            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
         }
 
         p {
@@ -153,7 +154,7 @@ html_content = '''
             color: #777777;
             line-height: 2;
             font-weight: 300;
-            font-family: 'HancomMalangMalang', Arial, sans-serif;
+            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
         }
         
         info {
@@ -161,7 +162,7 @@ html_content = '''
             color: #999999;
             line-height: 2;
             font-weight: 500;
-            font-family: 'HancomMalangMalang', Arial, sans-serif;
+            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
         }
         
         sub_info {
@@ -323,9 +324,11 @@ html_content = '''
 </body>
 </html>
 '''
-
+home_path = os.path.expanduser("~")
+path = os.path.join(home_path, "git/MobileWeddingInvitation")
+target_file = os.path.join(path, "index.html")
 # 파일 저장
-with open("index.html", "w", encoding="utf-8") as file:
+with open(target_file, "w", encoding="utf-8") as file:
     file.write(html_content)
 
 print("모바일 청첩장이 생성되었습니다: index.html")
