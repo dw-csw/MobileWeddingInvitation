@@ -1,5 +1,11 @@
 import os
 
+home_path = os.path.expanduser("~")
+path = os.path.join(home_path, "git/MobileWeddingInvitation")
+fonts = os.path.join(path, "scripts/fonts")
+print(fonts)
+target_file = os.path.join(path, "index.html")
+
 # Python 코드로 HTML 파일 생성
 html_content = '''
 <!DOCTYPE html>
@@ -10,25 +16,21 @@ html_content = '''
     <title>모바일 청첩장</title>
     <style>
         @font-face {
-            font-family: 'HancomMalangMalang';
-            src: url('fonts/HancomMalangMalang-Regular.ttf') format('truetype');
+            font-family: 'GhanaChocolate';
+            src: url('scripts/fonts/Ghanachocolate.ttf') format('truetype');
         }
-        
+
         @font-face {
             font-family: 'KimjungchulMyungjo';
-            src: url('fonts/KimjungchulMyungjo-Light.woff') format('woff'),
-            src: url('fonts/KimjungchulMyungjo-Light.woff2') format('woff2'),
-            src: url('fonts/KimjungchulMyungjo-Light.ttf') format('truetype'), 
-            src: url('fonts/KimjungchulMyungjo-Light.otf') format('opentype');
+            src: url('scripts/fonts/KimjungchulMyungjo-Light.ttf') format('truetype');
         }
-        
+
         @font-face {
             font-family: 'GwangyangSunshine';
-            src: url('fonts/GwangyangSunshineRegular.ttf') format('truetype');
+            src: url('scripts/fonts/Gwangyang Sunshine Regular.ttf') format('truetype');
         }
     
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #E7E2D5;
@@ -59,7 +61,62 @@ html_content = '''
             margin: 30px auto 0 auto;
         }
         
-        <!-- Slider -->
+        h1 {
+            font-size: 28px;
+            font-weight: 100;
+            color: #999999;
+        }
+        
+        name {
+            font-family: 'KimjungchulMyungjo', sans-serif;
+            font-size: 30px;
+            color: #777777;
+            line-height: 1.6;
+            font-weight: bold;
+        }
+
+        p {
+            font-family: 'GwangyangSunshine', sans-serif;
+            font-size: 20px;
+            color: #777777;
+            line-height: 2;
+            font-weight: 300;
+        }
+        
+        info {
+            font-size: 30px;
+            color: #999999;
+            line-height: 2;
+            font-weight: 500;
+        }
+        
+        sub_info {
+            font-size: 15px;
+            color: #777777;
+            line-height: 0.8;
+            font-weight: 300;
+        }
+        
+        pos {
+            font-size: 20px;
+            color: #777777;
+            line-height: 3;
+            font-weight: 300;
+        }
+        
+        sub {
+            font-size: 20px;
+            color: #999999;
+            line-height: 0.8;
+        }
+
+        .details {
+            font-weight: bold;
+            font-size: 30px;
+            color: #333333;
+            margin: 0px;
+        }
+        
          .slider-container {
             position: relative;
             width: 80%;
@@ -81,8 +138,8 @@ html_content = '''
             min-width: 100%;
             box-sizing: border-box;
             display: flex;
-            justify-content: center; /* 슬라이드 내의 이미지를 중앙 정렬 */
-            align-items: center; /* 슬라이드 내의 이미지를 중앙 정렬 */
+            justify-content: center;
+            align-items: center;
         }
 
         .slide img {
@@ -111,7 +168,6 @@ html_content = '''
         .next {
             right: 10px;
         }
-        <!-- Slider -->
         
         .separator {
             border-top: 2px dashed #333;
@@ -133,68 +189,6 @@ html_content = '''
             margin: 5px auto;
             max-width: 600px;
         }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 100;
-            color: #999999;
-            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
-        }
-        
-        name {
-            font-size: 30px;
-            color: #777777;
-            line-height: 1.6;
-            font-weight: bold;
-            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
-        }
-
-        p {
-            font-size: 20px;
-            color: #777777;
-            line-height: 2;
-            font-weight: 300;
-            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
-        }
-        
-        info {
-            font-size: 30px;
-            color: #999999;
-            line-height: 2;
-            font-weight: 500;
-            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
-        }
-        
-        sub_info {
-            font-size: 15px;
-            color: #777777;
-            line-height: 0.8;
-            font-weight: 300;
-            font-family: 'GwangyangSunshine', Arial, sans-serif;
-        }
-        
-        pos {
-            font-size: 20px;
-            color: #777777;
-            line-height: 3;
-            font-weight: 300;
-            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
-        }
-        
-        sub {
-            font-size: 20px;
-            color: #999999;
-            line-height: 0.8;
-            font-family: 'KimjungchulMyungjo', Arial, sans-serif;
-        }
-
-        .details {
-            font-weight: bold;
-            font-size: 30px;
-            color: #333333;
-            margin: 0px;
-            font-family: 'GwangyangSunshine', Arial, sans-serif;
-        }
         
         .map-link {
             margin-top: 8px;
@@ -208,7 +202,7 @@ html_content = '''
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
-            font-family: 'KimjungchulMyungjo';
+            font-family: 'Ghanachocolate';
         }
 
         .map-link a:hover {
