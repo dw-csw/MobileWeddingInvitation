@@ -22,7 +22,10 @@ html_content = '''
 
         @font-face {
             font-family: 'KimjungchulMyungjo';
-            src: url('scripts/fonts/KimjungchulMyungjo-Light.ttf') format('truetype');
+            src: url('scripts/fonts/KimjungchulMyungjo-Light.ttf') format('truetype'),
+            src: url('scripts/fonts/KimjungchulMyungjo-Light.otf') format('opentype'),
+            src: url('scripts/fonts/KimjungchulMyungjo-Light.woff') format('woff'),
+            src: url('scripts/fonts/KimjungchulMyungjo-Light.woff2') format('woff2');
         }
 
         @font-face {
