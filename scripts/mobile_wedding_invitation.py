@@ -17,6 +17,8 @@ html_content = '''
     <style>
         @font-face {
             font-family: 'GhanaChocolate';
+            src: url('scripts/fonts/Ghanachocolate.woff') format('woff'),
+            src: url('scripts/fonts/Ghanachocolate.woff2') format('woff2'),
             src: url('scripts/fonts/Ghanachocolate.ttf') format('truetype');
         }
 
@@ -30,8 +32,11 @@ html_content = '''
 
         @font-face {
             font-family: 'GwangyangSunshine';
+            src: url('scripts/fonts/Gwangyang Sunshine Regular.woff') format('woff'),
+            src: url('scripts/fonts/Gwangyang Sunshine Regular.woff2') format('woff2'),
             src: url('scripts/fonts/Gwangyang Sunshine Regular.ttf') format('truetype');
         }
+    
     
         body {
             margin: 0;

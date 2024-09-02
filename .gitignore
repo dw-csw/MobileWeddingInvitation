@@ -3,10 +3,6 @@
 *.jpg
 *.png
 *.pptx
-*.ttf
-*.otf
-*.woff
-*.woff2
 
 
 # This .gitignore file should be placed at the root of your Unity project directory
