@@ -188,6 +188,12 @@ html_content = '''
             border-radius: 10px;
             margin: 5px auto;
             max-width: 600px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .content.visible {
+            opacity: 1;
         }
         
         .greeting {
@@ -233,16 +239,18 @@ html_content = '''
     <!-- 초대 텍스트 부분 -->
     <div class="content">
         <img src="https://github.com/user-attachments/assets/3955cd6a-fce7-49a6-8e39-18383d1bb4af" alt="구분 기호" style="width: 100%; max-width: 300px;">
+        <span class="break"></span>
         <p>
             <name>천선우  ㆍ  김은혜</name>
         </p>
+        <span class="break"></span>
         <div class="details">
             <sub>2026. 11.12 SAT 12:00 PM<br>유성컨벤션웨딩홀 4층 블룸홀</sub>
         </div>
     </div>
     
     <!-- 인삿말 -->
-    <div class="greeting">
+    <div class="content">
         <img src="https://github.com/user-attachments/assets/f01eb8ea-0471-4254-a589-f1ebdafe9a98" alt="구분 기호" style="width: 100%; max-width: 400px;">
         <p>연인으로 시작하여<br>이제는 부부로서<br>함께한 시간보다<br>더 영원한 시간을<br>마주하기로 했습니다.<br>두 사람의 여정이<br>온전한 하나가 되는 날<br>축하와 격려로<br>자리를 빛내주세요</p>
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px;">
@@ -257,41 +265,47 @@ html_content = '''
         </div>
     </div>
     
-    <div class="slider-container">
-        <div class="slider">
-            <div class="slide"><img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image1"></div>
-            <div class="slide"><img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image2"></div>
-            <div class="slide"><img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image3"></div>
-            <div class="slide"><img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image4"></div>
-            <div class="slide"><img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image4"></div>
+    <div class="content">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide"><img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image1"></div>
+                <div class="slide"><img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image2"></div>
+                <div class="slide"><img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image3"></div>
+                <div class="slide"><img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image4"></div>
+                <div class="slide"><img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image4"></div>
+            </div>
         </div>
     </div>
     
-    <p></p>
-    <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
-    <h1>오시는 길</h1>
-    <img src="https://github.com/user-attachments/assets/6f216bef-dd02-4bda-a53b-96835d9a34b3" alt="구분 기호" style="width: 100%; max-width: 600px;">
-    <div class="map-link">
-        <a href="https://map.naver.com/p/entry/place/19882195?c=15.00,0,0,0,dh" target="_blank">[네이버 지도에서 주소 확인하기]</a>
+    <div class="content">
+        <p></p>
+        <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
+        <h1>오시는 길</h1>
+        <img src="https://github.com/user-attachments/assets/6f216bef-dd02-4bda-a53b-96835d9a34b3" alt="구분 기호" style="width: 100%; max-width: 600px;">
+        <div class="map-link">
+            <a href="https://map.naver.com/p/entry/place/19882195?c=15.00,0,0,0,dh" target="_blank">[네이버 지도에서 주소 확인하기]</a>
+        </div>
     </div>
     
-    <p></p>
-    <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
-    <div class="details">
-        <info>주소</info>
-        <span class="break"></span>
-        <sub_info>대전광역시 유성구 온천북로 77<br>(봉명동 692-4)<br>T. 042-825-7070</sub_info>
-        <span class="break"></span>
+    <div class="content">
+        <p></p>
+        <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
+        <div class="details">
+            <info>주소</info>
+            <span class="break"></span>
+            <sub_info>대전광역시 유성구 온천북로 77<br>(봉명동 692-4)<br>T. 042-825-7070</sub_info>
+            <span class="break"></span>
 
-        <info>지하철</info>
-        <span class="break"></span>
-        <sub_info>유성온천역 7번 출구에서 도보 17분</sub_info>
-        <span class="break"></span>
+            <info>지하철</info>
+            <span class="break"></span>
+            <sub_info>유성온천역 7번 출구에서 도보 17분</sub_info>
+            <span class="break"></span>
 
-        <info>버스</info>
-        <span class="break"></span>
-        <sub_info>홈플러스유성점 정류장 도보 8분<br>102, 106, 706,113</sub_info>
-        <span class="break"></span>
+            <info>버스</info>
+            <span class="break"></span>
+            <sub_info>홈플러스유성점 정류장 도보 8분<br>102, 106, 706,113</sub_info>
+            <span class="break"></span>
+        </div>
     </div>
     
     <p></p>
@@ -321,6 +335,35 @@ html_content = '''
             if (slides.length > 0) {
                 setInterval(() => moveSlide(1), 3000); // 자동 슬라이드 기능 (3초 간격)
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contents = document.querySelectorAll('.content');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // 해당 요소가 화면에 들어올 때
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } 
+                    // 해당 요소가 화면에서 벗어나고, 요소가 스크롤 위에 있을 때 계속 보이게 함
+                    else if (entry.boundingClientRect.top < 0) {
+                        entry.target.classList.add('visible');
+                    }
+                    // 해당 요소가 화면 아래에 있을 때 보이지 않게 함
+                    else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            contents.forEach(content => {
+                observer.observe(content);
+            });
         });
     </script>
 </body>
