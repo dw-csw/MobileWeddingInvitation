@@ -322,6 +322,7 @@ html_content = '''
         </div>
     </div>
     
+    <!-- 사진첩 -->
     <div class="content">
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
         <h1>사진첩</h1>
@@ -336,6 +337,7 @@ html_content = '''
         </div>
     </div>
     
+    <!-- 길안내 -->
     <div class="content">
         <p></p>
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
@@ -364,6 +366,7 @@ html_content = '''
             </div>
     </div>
     
+    <!-- 마음 전하는 곳 -->
     <div class="content">
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
         <div class="details">
