@@ -68,7 +68,7 @@
         
         name {
             font-family: 'KimjungchulMyungjo', sans-serif;
-            font-size: 30px;
+            font-size: 26px;
             color: #777777;
             line-height: 1.6;
             font-weight: bold;
@@ -79,20 +79,6 @@
             font-size: 20px;
             color: #777777;
             line-height: 2;
-            font-weight: 300;
-        }
-        
-        info {
-            font-size: 30px;
-            color: #999999;
-            line-height: 2;
-            font-weight: 500;
-        }
-        
-        sub_info {
-            font-size: 15px;
-            color: #777777;
-            line-height: 0.8;
             font-weight: 300;
         }
         
@@ -107,13 +93,6 @@
             font-size: 20px;
             color: #999999;
             line-height: 0.8;
-        }
-
-        .details {
-            font-weight: bold;
-            font-size: 30px;
-            color: #333333;
-            margin: 0px;
         }
         
          .slider-container {
@@ -187,14 +166,34 @@
             opacity: 1;
         }
         
-        .greeting {
-            padding: 20px;
-            background-color: #DBD7CA;
-            border-radius: 10px;
-            margin: 5px auto;
-            max-width: 600px;
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
         }
-        
+
+        .account_container {
+            width: 100%;
+            max-width: 420px;
+            display: inline-block;
+            text-align: left;
+            margin: 10px;
+        }
+
+        .copy_container {
+            width: 100%;
+            background-color: #FFFFFF;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .item {
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+        }
+
         .map-link {
             margin-top: 8px;
         }
@@ -213,10 +212,68 @@
         .map-link a:hover {
             background-color: #FFF9EB;
         }
+
+        .details {
+            font-weight: bold;
+            font-size: 30px;
+            color: #333333;
+            margin: 5px;
+            line-height: 1.0;
+        }
+
+        main_info {
+            font-size: 30px;
+            color: #999999;
+            line-height: 0.5;
+            font-weight: 600;
+        }
+        
+        sub_info_thin {
+            font-family: 'KimjungchulMyungjo', sans-serif;
+            font-size: 20px;
+            color: #777777;
+            line-height: 0.1;
+            font-weight: 300;
+        }
+
+        sub_info_bold {
+            font-family: 'KimjungchulMyungjo', sans-serif;
+            font-size: 20px;
+            color: #777777;
+            line-height: 0.1;
+            font-weight: 900;
+        }
+
+        sub_info_withbg {
+            font-family: 'KimjungchulMyungjo', sans-serif;
+            font-size: 20px;
+            color: #777777;
+            line-height: 0.1;
+            font-weight: 900;
+            background-color: #E9E9E9;
+            border-radius: 5px;
+            padding: 2px;
+        }
+
+        .clickcopy {
+            align-items: center;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .tap {
+            display: block;
+            margin: 60px;
+        }
+
+        .halftap {
+            display: block;
+            margin: 30px;
+        }
         
         .break {
             display: block;
-            margin: 5px 0;
+            margin: 20px;
         }
     </style>
 </head>
@@ -257,6 +314,8 @@
     </div>
     
     <div class="content">
+        <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
+        <h1>사진첩</h1>
         <div class="slider-container">
             <div class="slider">
                 <div class="slide"><img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image1"></div>
@@ -273,42 +332,78 @@
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
         <h1>오시는 길</h1>
         <img src="https://github.com/user-attachments/assets/6f216bef-dd02-4bda-a53b-96835d9a34b3" alt="구분 기호" style="width: 100%; max-width: 600px;">
-        <div class="map-link">
-            <a href="https://map.naver.com/p/entry/place/19882195?c=15.00,0,0,0,dh" target="_blank">[네이버 지도에서 주소 확인하기]</a>
+
+        <div class="container">
+                <div class="item">
+                    <img src="https://github.com/user-attachments/assets/bc620826-6e4c-4ea0-89c4-76342b364349" alt="Image 1" style="width: 100%; max-width: 30px;">
+                    <div class="map-link">
+                        <a href="https://map.naver.com/p/entry/place/19882195?c=15.00,0,0,0,dh" target="_blank">네이버 지도</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="https://github.com/user-attachments/assets/58845f64-fcf6-4a3d-a73d-a4541847eedc" alt="Image 2" style="width: 100%; max-width: 20px;">
+                    <div class="map-link">
+                        <a href="https://maps.app.goo.gl/syAk93zQ2d74QdMH7" target="_blank">구글 지도</a>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="https://github.com/user-attachments/assets/92fb32b2-e882-4158-9abb-f4497e75f489" alt="Image 3" style="width: 100%; max-width: 30px;">
+                    <div class="map-link">
+                        <a href="https://kko.to/jUMa0NPXOy" target="_blank">카카오 지도</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <div class="content">
+        <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
+        <div class="details">
+            <span class="halftap"></span>
+            <main_info>주소</main_info>
+            <span class="break"></span>
+            <sub_info_thin>대전광역시 유성구 온천북로 77<br>(봉명동 692-4)<br>T. 042-825-7070</sub_info_thin>
+            <span class="break"></span>
+
+            <span class="tap"></span>
+            <main_info>지하철</main_info>
+            <span class="break"></span>
+            <sub_info_thin>유성온천역 7번 출구에서 도보 17분</sub_info_thin>
+            <span class="break"></span>
+
+            <span class="tap"></span>
+            <main_info>버스</main_info>
+            <span class="break"></span>
+            <sub_info_thin>홈플러스유성점 정류장 도보 8분<br>102, 106, 706,113</sub_info_thin>
+            <span class="break"></span>
         </div>
     </div>
     
     <div class="content">
-        <p></p>
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
-        <div class="details">
-            <info>주소</info>
-            <span class="break"></span>
-            <sub_info>대전광역시 유성구 온천북로 77<br>(봉명동 692-4)<br>T. 042-825-7070</sub_info>
-            <span class="break"></span>
+        <span class="tap"></span>
+        <main_info>마음 전하실 곳</main_info>
 
-            <info>지하철</info>
-            <span class="break"></span>
-            <sub_info>유성온천역 7번 출구에서 도보 17분</sub_info>
-            <span class="break"></span>
+        <span class="break"></span>
+        <div class="account_container">
+            <sub_info_thin>&nbsp;&nbsp;신랑</sub_info_thin> <sub_info_bold>천선우</sub_info_bold> 
+            <div class="clickcopy" onclick="copyText('603-311890-59726')">
+                <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>603-311890-59726&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</sub_info_bold>
+                <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="Image 4" style="width: 100%; max-width: 20px;"> 복사</sub_info_withbg>
+            </div>
+        </div>
 
-            <info>버스</info>
-            <span class="break"></span>
-            <sub_info>홈플러스유성점 정류장 도보 8분<br>102, 106, 706,113</sub_info>
-            <span class="break"></span>
+        <span class="break"></span>
+        <div class="account_container">
+            <sub_info_thin>&nbsp;&nbsp;신부</sub_info_thin> <sub_info_bold>김은혜</sub_info_bold> 
+            <div class="clickcopy" onclick="copyText('719203-83-374781')">
+                <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>719203-83-374781&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</sub_info_bold>
+                <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="Image 4" style="width: 100%; max-width: 20px;"> 복사</sub_info_withbg>
+            </div>
         </div>
     </div>
     
-    <p></p>
-    <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
-    <span class="break"></span>
-    <info>마음 전하실 곳</info>
-    <span class="break"></span>
-    <sub_info> 천선우 : 하나 60112345678</sub_info>
-    <span class="break"></span>
-    <sub_info> 김은혜 : 국민 72012345678</sub_info>
-    <span class="break"></span>
-    
+
+    <!-- 함수 구현부 -->
     <script>
         let currentIndex = 0;
 
@@ -324,7 +419,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.slide');
             if (slides.length > 0) {
-                setInterval(() => moveSlide(1), 3000); // 자동 슬라이드 기능 (3초 간격)
+                setInterval(() => moveSlide(1), 3000);
             }
         });
     </script>
@@ -335,15 +430,12 @@
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // 해당 요소가 화면에 들어올 때
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     } 
-                    // 해당 요소가 화면에서 벗어나고, 요소가 스크롤 위에 있을 때 계속 보이게 함
                     else if (entry.boundingClientRect.top < 0) {
                         entry.target.classList.add('visible');
                     }
-                    // 해당 요소가 화면 아래에 있을 때 보이지 않게 함
                     else {
                         entry.target.classList.remove('visible');
                     }
@@ -356,6 +448,18 @@
                 observer.observe(content);
             });
         });
+    </script>
+
+    <script>
+        function copyText(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('클립보드에 복사되었습니다 : ' + text);
+        }
     </script>
 </body>
 </html>
