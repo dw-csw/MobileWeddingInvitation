@@ -182,11 +182,19 @@ html_content = '''
             width: 100%;
         }
 
-        .account_container {
+        .account_name_container {
             width: 100%;
-            max-width: 420px;
+            max-width: 350px;
             display: inline-block;
             text-align: left;
+            margin: 10px;
+        }
+
+        .account_container {
+            width: 100%;
+            max-width: 450px;
+            display: inline-block;
+            text-align: center;
             margin: 10px;
         }
 
@@ -400,7 +408,9 @@ html_content = '''
 
         <span class="break"></span>
         <div class="account_container">
-            <sub_info_thin>&nbsp;&nbsp;신랑</sub_info_thin> <sub_info_bold>천선우</sub_info_bold> 
+            <div class="account_name_container">
+                <sub_info_thin>&nbsp;&nbsp;신랑</sub_info_thin> <sub_info_bold>천선우</sub_info_bold> 
+            </div>
             <div class="clickcopy" onclick="copyText('603-311890-59726')">
                 <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>603-311890-59726&nbsp;&nbsp;</sub_info_bold>
                 <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="Image 4" style="width: 100%; max-width: 20px;"> 복사</sub_info_withbg>
