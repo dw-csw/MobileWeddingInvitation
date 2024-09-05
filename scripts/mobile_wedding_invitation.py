@@ -247,7 +247,7 @@ html_content = '''
         
         sub_info_thin {
             font-family: 'KimjungchulMyungjo', sans-serif;
-            font-size: 10px;
+            font-size: 16px;
             color: #777777;
             line-height: 0.1;
             font-weight: 300;
@@ -255,7 +255,7 @@ html_content = '''
 
         sub_info_bold {
             font-family: 'KimjungchulMyungjo', sans-serif;
-            font-size: 10px;
+            font-size: 16px;
             color: #777777;
             line-height: 0.1;
             font-weight: 900;
@@ -263,7 +263,7 @@ html_content = '''
 
         sub_info_withbg {
             font-family: 'KimjungchulMyungjo', sans-serif;
-            font-size: 10px;
+            font-size: 16px;
             color: #777777;
             line-height: 0.1;
             font-weight: 900;
