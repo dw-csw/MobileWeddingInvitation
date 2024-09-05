@@ -310,6 +310,9 @@ html_content = '''
     <div class="content">
         <img src="https://github.com/user-attachments/assets/f01eb8ea-0471-4254-a589-f1ebdafe9a98" alt="구분 기호" style="width: 100%; max-width: 400px;">
         <p>연인으로 시작하여<br>이제는 부부로서<br>함께한 시간보다<br>더 영원한 시간을<br>마주하기로 했습니다.<br>두 사람의 여정이<br>온전한 하나가 되는 날<br>축하와 격려로<br>자리를 빛내주세요</p>
+    </div>
+
+    <div class="content">
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px;">
         <p>
             <name>천병찬 ㆍ 최동숙의</name> 장남 <name>선우</name>
