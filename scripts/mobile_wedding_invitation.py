@@ -102,7 +102,7 @@ html_content = '''
 
         main_name {
             font-family: 'museumclassic', sans-serif;
-            font-size: 40px;
+            font-size: 33px;
             color: #777777;
             line-height: 1.6;
             font-weight: 900;
