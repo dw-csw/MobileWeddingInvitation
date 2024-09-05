@@ -7,10 +7,18 @@
     <title>모바일 청첩장</title>
     <style>
         @font-face {
-            font-family: 'GhanaChocolate';
-            src: url('scripts/fonts/Ghanachocolate.woff') format('woff'),
-            src: url('scripts/fonts/Ghanachocolate.woff2') format('woff2'),
-            src: url('scripts/fonts/Ghanachocolate.ttf') format('truetype');
+            font-family: 'YeojuCeramic';
+            src: url('scripts/fonts/YeojuCeramic.woff') format('woff'),
+            src: url('scripts/fonts/YeojuCeramic.woff2') format('woff2'),
+            src: url('scripts/fonts/YeojuCeramic.ttf') format('truetype');
+            src: url('scripts/fonts/YeojuCeramic.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'PyeongChang-Regular';
+            src: url('scripts/fonts/PyeongChang-Regular.ttf') format('truetype'),
+            src: url('scripts/fonts/PyeongChang-Regular.woff') format('woff'),
+            src: url('scripts/fonts/PyeongChang-Regular.woff2') format('woff2');
         }
 
         @font-face {
@@ -22,10 +30,33 @@
         }
 
         @font-face {
+            font-family: 'gamtanroad_tantan';
+            src: url('scripts/fonts/gamtanroad_tantan.ttf') format('truetype'),
+            src: url('scripts/fonts/gamtanroad_tantan.woff') format('woff'),
+            src: url('scripts/fonts/gamtanroad_tantan.woff2') format('woff2'),
+            src: url('scripts/fonts/gamtanroad_tantan.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'museumclassic';
+            src: url('scripts/fonts/museumclassic.ttf') format('truetype'),
+            src: url('scripts/fonts/museumclassic.woff') format('woff'),
+            src: url('scripts/fonts/museumclassic.woff2') format('woff2');
+            src: url('scripts/fonts/museumclassic.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'HakgyoansimBareonbatangB';
+            src: url('scripts/fonts/HakgyoansimBareonbatangB.ttf') format('truetype'),
+            src: url('scripts/fonts/HakgyoansimBareonbatangB.woff') format('woff'),
+            src: url('scripts/fonts/HakgyoansimBareonbatangB.woff2') format('woff2');
+        }
+
+        @font-face {
             font-family: 'GwangyangSunshine';
-            src: url('scripts/fonts/Gwangyang Sunshine Regular.woff') format('woff'),
-            src: url('scripts/fonts/Gwangyang Sunshine Regular.woff2') format('woff2'),
-            src: url('scripts/fonts/Gwangyang Sunshine Regular.ttf') format('truetype');
+            src: url('scripts/fonts/GwangyangSunshineRegular.ttf') format('truetype'),
+            src: url('scripts/fonts/GwangyangSunshineRegular.woff') format('woff'),
+            src: url('scripts/fonts/GwangyangSunshineRegular.woff2') format('woff2');
         }
     
     
@@ -59,14 +90,24 @@
             display: block;
             margin: 30px auto 0 auto;
         }
-        
-        h1 {
-            font-size: 28px;
-            font-weight: 100;
-            color: #999999;
+
+        main_name {
+            font-family: 'museumclassic', sans-serif;
+            font-size: 40px;
+            color: #777777;
+            line-height: 1.6;
+            font-weight: 900;
+        }
+
+        groom_bride_name {
+            font-family: 'PyeongChang-Regular', sans-serif;
+            font-size: 26px;
+            color: #777777;
+            line-height: 1.6;
+            font-weight: bold;
         }
         
-        name {
+        parent_name {
             font-family: 'KimjungchulMyungjo', sans-serif;
             font-size: 26px;
             color: #777777;
@@ -82,20 +123,7 @@
             font-weight: 300;
         }
         
-        pos {
-            font-size: 20px;
-            color: #777777;
-            line-height: 3;
-            font-weight: 300;
-        }
-        
-        sub {
-            font-size: 20px;
-            color: #999999;
-            line-height: 0.8;
-        }
-        
-         .slider-container {
+        .slider-container {
             position: relative;
             width: 80%;
             max-width: 800px;
@@ -137,19 +165,6 @@
             padding: 10px;
             cursor: pointer;
             font-size: 24px;
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
-        
-        .separator {
-            border-top: 2px dashed #333;
-            margin: 20px 0;
         }
 
         .content {
@@ -214,7 +229,7 @@
             text-decoration: none;
             border-radius: 5px;
             font-size: 16px;
-            font-family: 'Ghanachocolate';
+            font-family: 'GwangyangSunshine', sans-serif;
         }
 
         .map-link a:hover {
@@ -229,11 +244,20 @@
             line-height: 1.0;
         }
 
+        wedding_info {
+            font-family: 'YeojuCeramic', sans-serif;
+            font-size: 22px;
+            color: #999999;
+            line-height: 0.5;
+            font-weight: 100;
+        }
+
         main_info {
+            font-family: 'GwangyangSunshine', sans-serif;
             font-size: 30px;
             color: #999999;
             line-height: 0.5;
-            font-weight: 600;
+            font-weight: 100;
         }
         
         sub_info_thin {
@@ -285,6 +309,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- 상단 배경이 제거된 PNG 이미지 -->
     <img src="https://github.com/user-attachments/assets/3e8425ce-a7bd-4f97-8299-796c7f43bef8" alt="배경 이미지" class="header-img">
@@ -296,12 +321,10 @@
     <div class="content">
         <img src="https://github.com/user-attachments/assets/3955cd6a-fce7-49a6-8e39-18383d1bb4af" alt="구분 기호" style="width: 100%; max-width: 300px;">
         <span class="break"></span>
-        <p>
-            <name>천선우  ㆍ  김은혜</name>
-        </p>
+        <main_name>천선우  ㆍ  김은혜</main_name>
         <span class="break"></span>
         <div class="details">
-            <sub>2026. 11.12 SAT 12:00 PM<br>유성컨벤션웨딩홀 4층 블룸홀</sub>
+            <wedding_info>2026. 11.12 SAT 12:00 PM<br>유성컨벤션웨딩홀 4층 블룸홀</wedding_info>
         </div>
     </div>
     
@@ -314,20 +337,23 @@
     <div class="content">
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px;">
         <p>
-            <name>천병찬 ㆍ 최동숙의</name> 장남 <name>선우</name>
+            <parent_name>천병찬 ㆍ 최동숙의</parent_name> 장남 <groom_bride_name>선우</groom_bride_name>
         </p>
         <p>
-            <name>김헌수 ㆍ 원지영의</name> 차녀 <name>은혜</name>
+            <parent_name>김헌수 ㆍ 원지영의</parent_name> 차녀 <groom_bride_name>은혜</groom_bride_name>
         </p>
         <div class="details">
-            <sub>2026. 11.12 SAT 12:00 PM<br>유성컨벤션웨딩홀 4층 블룸홀</sub>
+            <wedding_info>2026. 11.12 SAT 12:00 PM<br>유성컨벤션웨딩홀 4층 블룸홀</wedding_info>
         </div>
     </div>
     
     <!-- 사진첩 -->
     <div class="content">
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
-        <h1>사진첩</h1>
+        <span class="break"></span>
+        <main_info>사진첩</main_info>
+        <span class="break"></span>
+
         <div class="slider-container">
             <div class="slider">
                 <div class="slide"><img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image1"></div>
@@ -343,7 +369,9 @@
     <div class="content">
         <p></p>
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
-        <h1>오시는 길</h1>
+        <span class="break"></span>
+        <main_info>오시는 길</main_info>
+        <span class="break"></span>
         <img src="https://github.com/user-attachments/assets/6f216bef-dd02-4bda-a53b-96835d9a34b3" alt="구분 기호" style="width: 100%; max-width: 600px;">
 
         <div class="container">
@@ -394,7 +422,7 @@
     
     <div class="content">
         <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
-        <span class="tap"></span>
+        <span class="halftap"></span>
         <main_info>마음 전하실 곳</main_info>
 
         <span class="break"></span>
