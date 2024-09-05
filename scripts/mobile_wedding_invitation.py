@@ -192,10 +192,10 @@ html_content = '''
 
         .account_container {
             width: 100%;
-            max-width: 450px;
+            max-width: 470px;
             display: inline-block;
             text-align: center;
-            margin: 10px;
+            margin: 1px;
         }
 
         .copy_container {
