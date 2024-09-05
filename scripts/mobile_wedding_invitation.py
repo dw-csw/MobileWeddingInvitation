@@ -184,7 +184,7 @@ html_content = '''
 
         .account_name_container {
             width: 100%;
-            max-width: 350px;
+            max-width: 325px;
             display: inline-block;
             text-align: left;
             margin: 10px;
@@ -247,7 +247,7 @@ html_content = '''
         
         sub_info_thin {
             font-family: 'KimjungchulMyungjo', sans-serif;
-            font-size: 19px;
+            font-size: 18px;
             color: #777777;
             line-height: 0.1;
             font-weight: 300;
@@ -255,7 +255,7 @@ html_content = '''
 
         sub_info_bold {
             font-family: 'KimjungchulMyungjo', sans-serif;
-            font-size: 19px;
+            font-size: 18px;
             color: #777777;
             line-height: 0.1;
             font-weight: 900;
@@ -263,7 +263,7 @@ html_content = '''
 
         sub_info_withbg {
             font-family: 'KimjungchulMyungjo', sans-serif;
-            font-size: 19px;
+            font-size: 18px;
             color: #777777;
             line-height: 0.1;
             font-weight: 900;
@@ -419,7 +419,9 @@ html_content = '''
 
         <span class="break"></span>
         <div class="account_container">
-            <sub_info_thin>&nbsp;&nbsp;신부</sub_info_thin> <sub_info_bold>김은혜</sub_info_bold> 
+            <div class="account_name_container">
+                <sub_info_thin>&nbsp;&nbsp;신부</sub_info_thin> <sub_info_bold>김은혜</sub_info_bold> 
+            </div>
             <div class="clickcopy" onclick="copyText('719203-83-374781')">
                 <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>719203-83-374781&nbsp;&nbsp;</sub_info_bold>
                 <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="Image 4" style="width: 100%; max-width: 20px;"> 복사</sub_info_withbg>
