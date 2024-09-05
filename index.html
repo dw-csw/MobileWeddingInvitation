@@ -91,8 +91,29 @@
             margin: 30px auto 0 auto;
         }
 
+        .greeting {
+            font-family: 'YeojuCeramic', sans-serif;
+            font-size: 80px;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        .greeting.hidden {
+            opacity: 0;
+        }
+
+        .start_content {
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        .visible {
+            opacity: 1;
+        }
+
         main_name {
-            font-family: 'museumclassic', sans-serif;
+            font-family: 'KimjungchulMyungjo', sans-serif;
             font-size: 33px;
             color: #777777;
             line-height: 1.6;
@@ -246,10 +267,10 @@
 
         wedding_info {
             font-family: 'YeojuCeramic', sans-serif;
-            font-size: 22px;
+            font-size: 20px;
             color: #999999;
             line-height: 0.5;
-            font-weight: 100;
+            font-weight: 10;
         }
 
         main_info {
@@ -293,6 +314,16 @@
             cursor: pointer;
         }
 
+        .greetingtap {
+            display: block;
+            margin: 300px;
+        }
+
+        .starttap {
+            display: block;
+            margin: -400px;
+        }
+
         .tap {
             display: block;
             margin: 60px;
@@ -311,20 +342,28 @@
 </head>
 
 <body>
-    <!-- 상단 배경이 제거된 PNG 이미지 -->
-    <img src="https://github.com/user-attachments/assets/3e8425ce-a7bd-4f97-8299-796c7f43bef8" alt="배경 이미지" class="header-img">
-    
-    <!-- 메인 이미지 -->
-    <img src="https://github.com/user-attachments/assets/da473233-f40e-46ab-a716-9bef7223d64a" alt="메인 이미지" class="main-img">
+    <div class="greeting" id="greeting">
+        <span class="greetingtap"></span>
+        결혼합니다.
+    </div>
 
-    <!-- 초대 텍스트 부분 -->
-    <div class="content">
-        <img src="https://github.com/user-attachments/assets/3955cd6a-fce7-49a6-8e39-18383d1bb4af" alt="구분 기호" style="width: 100%; max-width: 300px;">
-        <span class="break"></span>
-        <main_name>천선우  ㆍ  김은혜</main_name>
-        <span class="break"></span>
-        <div class="details">
-            <wedding_info>2026. 11.12 SAT 12:00 PM<br>유성컨벤션웨딩홀 4층 블룸홀</wedding_info>
+    <span class="starttap"></span>
+    <div class="start_content" id="start_content">
+        <!-- 상단 배경이 제거된 PNG 이미지 -->
+        <img src="https://github.com/user-attachments/assets/3e8425ce-a7bd-4f97-8299-796c7f43bef8" alt="배경 이미지" class="header-img">
+        
+        <!-- 메인 이미지 -->
+        <img src="https://github.com/user-attachments/assets/da473233-f40e-46ab-a716-9bef7223d64a" alt="메인 이미지" class="main-img">
+
+        <!-- 초대 텍스트 부분 -->
+        <div class="content">
+            <img src="https://github.com/user-attachments/assets/3955cd6a-fce7-49a6-8e39-18383d1bb4af" alt="구분 기호" style="width: 100%; max-width: 300px;">
+            <span class="break"></span>
+            <main_name>천선우  ㆍ  김은혜</main_name>
+            <span class="break"></span>
+            <div class="details">
+                <wedding_info>2026. 11.12 SAT 12:00 PM<br>유성컨벤션웨딩홀 4층 블룸홀</wedding_info>
+            </div>
         </div>
     </div>
     
@@ -451,6 +490,18 @@
 
     <!-- 함수 구현부 -->
     <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById("greeting").classList.add("hidden");
+
+                setTimeout(function() {
+                    document.getElementById("start_content").classList.add("visible");
+                }, 500);
+            }, 1000);
+        };
+    </script>
+
+    <script>
         let currentIndex = 0;
 
         function moveSlide(step) {
@@ -487,7 +538,7 @@
                     }
                 });
             }, {
-                threshold: 0.3
+                threshold: 0.4
             });
 
             contents.forEach(content => {
