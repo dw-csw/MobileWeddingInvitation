@@ -376,7 +376,7 @@ html_content = '''
 
         .starttap {
             display: block;
-            margin: -400px;
+            margin: -350px;
         }
 
         .tap {
