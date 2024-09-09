@@ -145,7 +145,7 @@ html_content = '''
 
         loader {
             font-family: 'GwangyangSunshine', sans-serif;
-            font-size: 40px;
+            font-size: 35px;
             color: #999999;
             line-height: 1.0;
             font-weight: bold;
@@ -153,7 +153,7 @@ html_content = '''
 
         loader_aux {
             font-family: 'PyeongChang-Regular', sans-serif;
-            font-size: 20px;
+            font-size: 15px;
             color: #777777;
             line-height: 1.6;
             font-weight: 200;
