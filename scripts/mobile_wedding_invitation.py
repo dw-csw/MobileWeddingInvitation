@@ -104,11 +104,50 @@ html_content = '''
             font-family: 'YeojuCeramic', sans-serif;
             font-size: 80px;
             text-align: center;
-            opacity: 1;
-            transition: opacity 1s ease;
+            opacity: 0;
+            transition: opacity 2s ease;
+
         }
 
-        .greeting.hidden {
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* 스크롤 애니메이션 */
+        .scroll-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .scroll-text span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 3s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .hidden {
             opacity: 0;
         }
 
@@ -330,7 +369,7 @@ html_content = '''
 
         .starttap {
             display: block;
-            margin: -400px;
+            margin: 0px;
         }
 
         .tap {
@@ -351,6 +390,12 @@ html_content = '''
 </head>
 
 <body>
+    <div id="loader">
+        <div class="scroll-text">
+            <span>로딩 중...</span>
+        </div>
+    </div>
+
     <div class="greeting" id="greeting">
         <span class="greetingtap"></span>
         결혼합니다.
@@ -497,17 +542,18 @@ html_content = '''
     </div>
     
 
-    <!-- 함수 구현부 -->
-    <script>
-        window.onload = function() {
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
-                document.getElementById("greeting").classList.add("hidden");
+                document.getElementById("loader").classList.add("hidden");
+                document.getElementById("greeting").classList.add("visible");
 
                 setTimeout(function() {
+                    document.getElementById("greeting").style.display = "none";
                     document.getElementById("start_content").classList.add("visible");
-                }, 500);
+                }, 1000);
             }, 1000);
-        };
+        });
     </script>
 
     <script>
