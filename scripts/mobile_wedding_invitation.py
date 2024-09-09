@@ -102,7 +102,7 @@ html_content = '''
 
         .greeting {
             font-family: 'YeojuCeramic', sans-serif;
-            font-size: 80px;
+            font-size: 60px;
             text-align: center;
             transform: scale(1);
             opacity: 0;
@@ -573,7 +573,7 @@ html_content = '''
                             document.getElementById("greeting").style.transform = "scale(1)";
                         }, 800);
                     }, 100);
-                }, 1500);
+                }, 2500);
             }, 1000);
         });
     </script>
