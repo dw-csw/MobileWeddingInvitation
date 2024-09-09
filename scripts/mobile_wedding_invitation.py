@@ -104,9 +104,30 @@ html_content = '''
             font-family: 'YeojuCeramic', sans-serif;
             font-size: 80px;
             text-align: center;
+            transform: scale(1);
             opacity: 0;
-            transition: opacity 2s ease;
+            transition: opacity 1s ease, transform 1s ease;
+        }
 
+        .start_content {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 1s ease;
+        }
+
+        .greeting-grow {
+            transform: scale(2);
+            opacity: 0;
+        }
+
+        .greeting-origin {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        .start_content-show {
+            transform: scale(1);
+            opacity: 1;
         }
 
         #loader {
@@ -115,45 +136,31 @@ html_content = '''
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #fff;
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-        }
-
-        /* 스크롤 애니메이션 */
-        .scroll-text {
             font-size: 24px;
+        }
+
+        loader {
+            font-family: 'GwangyangSunshine', sans-serif;
+            font-size: 40px;
+            color: #999999;
+            line-height: 1.0;
             font-weight: bold;
-            color: #333;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 100%;
         }
 
-        .scroll-text span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll 3s linear infinite;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+        loader_aux {
+            font-family: 'PyeongChang-Regular', sans-serif;
+            font-size: 20px;
+            color: #777777;
+            line-height: 1.6;
+            font-weight: 200;
         }
 
         .hidden {
             opacity: 0;
-        }
-
-        .start_content {
-            opacity: 0;
-            transition: opacity 2s ease;
         }
 
         .visible {
@@ -369,7 +376,7 @@ html_content = '''
 
         .starttap {
             display: block;
-            margin: 0px;
+            margin: -400px;
         }
 
         .tap {
@@ -391,9 +398,15 @@ html_content = '''
 
 <body>
     <div id="loader">
-        <div class="scroll-text">
-            <span>로딩 중...</span>
-        </div>
+        <p>
+            <loader>
+                페이지 불러오는 중...
+            </loader>
+            <span class="break"></span>
+            <loader_aux>
+                사용자 환경에 따라 1~5초 가량 소요됩니다.
+            </loader_aux>
+        </p>
     </div>
 
     <div class="greeting" id="greeting">
@@ -541,17 +554,26 @@ html_content = '''
         </div>
     </div>
     
-
-<script>
+    <!-- 함수 구현부 -->
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
                 document.getElementById("loader").classList.add("hidden");
-                document.getElementById("greeting").classList.add("visible");
+                document.getElementById("greeting").style.opacity = 1;
 
                 setTimeout(function() {
-                    document.getElementById("greeting").style.display = "none";
-                    document.getElementById("start_content").classList.add("visible");
-                }, 1000);
+                    document.getElementById("greeting").classList.add("greeting-grow");
+
+                    setTimeout(function() {
+                        document.getElementById("greeting").style.opacity = 0;
+                        document.getElementById("start_content").classList.add("start_content-show");
+
+                        setTimeout(function() {
+                            document.getElementById("greeting").classList.remove("greeting-grow");
+                            document.getElementById("greeting").style.transform = "scale(1)";
+                        }, 800);
+                    }, 100);
+                }, 1500);
             }, 1000);
         });
     </script>
