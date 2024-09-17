@@ -100,13 +100,17 @@ html_content = '''
             margin: 30px auto 0 auto;
         }
 
-        .greeting {
+        .additional-loading, .greeting {
             font-family: 'YeojuCeramic', sans-serif;
             font-size: 60px;
             text-align: center;
             transform: scale(1);
             opacity: 0;
             transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .additional-loading-show {
+            opacity: 1;
         }
 
         .start_content {
@@ -409,6 +413,19 @@ html_content = '''
         </p>
     </div>
 
+    <div class="additional-loading" id="additional-loading">
+        <span class="greetingtap"></span>
+        <p>
+            <loader>
+                페이지 불러오는 중...
+            </loader>
+            <span class="break"></span>
+            <loader_aux>
+                사용자 환경에 따라 1~5초 가량 소요됩니다.
+            </loader_aux>
+        </p>
+    </div>
+
     <div class="greeting" id="greeting">
         <span class="greetingtap"></span>
         결혼합니다.
@@ -559,21 +576,25 @@ html_content = '''
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
                 document.getElementById("loader").classList.add("hidden");
-                document.getElementById("greeting").style.opacity = 1;
-
+                document.getElementById("additional-loading").style.opacity = 1;
                 setTimeout(function() {
-                    document.getElementById("greeting").classList.add("greeting-grow");
+                    document.getElementById("additional-loading").style.display = "none";
+                    document.getElementById("greeting").style.opacity = 1;
 
                     setTimeout(function() {
-                        document.getElementById("greeting").style.opacity = 0;
-                        document.getElementById("start_content").classList.add("start_content-show");
+                        document.getElementById("greeting").classList.add("greeting-grow");
 
                         setTimeout(function() {
-                            document.getElementById("greeting").classList.remove("greeting-grow");
-                            document.getElementById("greeting").style.transform = "scale(1)";
-                        }, 800);
-                    }, 100);
-                }, 2500);
+                            document.getElementById("greeting").style.opacity = 0;
+                            document.getElementById("start_content").classList.add("start_content-show");
+
+                            setTimeout(function() {
+                                document.getElementById("greeting").classList.remove("greeting-grow");
+                                document.getElementById("greeting").style.transform = "scale(1)";
+                            }, 800);
+                        }, 100);
+                    }, 2500);
+                }, 2000);
             }, 1000);
         });
     </script>
