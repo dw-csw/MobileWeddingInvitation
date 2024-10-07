@@ -265,19 +265,123 @@ html_content = '''
             width: 100%;
         }
 
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slide img {
+        .slider img {
             width: 100%;
             max-width: 600px;
             height: auto;
             display: block;
+        }
+
+        .slider img:first-child {
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scroll-behavior: smooth;
+            cursor: grab;
+        }
+
+        .thumbnails img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnails img:hover {
+            transform: scale(1.1);
+        }
+
+        .thumbnails:active {
+            cursor: grabbing;
+        }
+
+        .modal {
+            display: none; /* 기본적으로 숨김 */
+            position: fixed;
+            z-index: 1000; /* 모달을 최상위로 설정 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            position: relative;
+        }
+
+        /* 닫기 버튼 스타일 */
+        .close {
+            position: absolute;
+            top: calc(50% - 400px);
+            left: calc(50% + 250px);
+            z-index: 1100;
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            padding: 1px;
+            border-radius: 30%;
+        }
+
+        @media (max-width: 460px) {
+            .close {
+                top: calc(50% - 190px);
+                left: calc(50% + 110px);
+                z-index: 1100;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.5);
+                width: 30px;
+                height: 30px;
+                border-radius: 30%;
+            }
+
+            .modal-content {
+                max-width: 80%;
+                max-height: 80%;
+                position: relative;
+            }
         }
 
         button {
@@ -535,14 +639,36 @@ html_content = '''
             <span class="break"></span>
 
             <div class="slider-container">
-                <div class="slider">
-                    <div class="slide"><img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image1"></div>
-                    <div class="slide"><img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image2"></div>
-                    <div class="slide"><img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image3"></div>
-                    <div class="slide"><img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image4"></div>
-                    <div class="slide"><img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image4"></div>
+                <div class="slider" id="mainSlider">
+                    <img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image1">
+                    <img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image2">
+                    <img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image3">
+                    <img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image4">
+                    <img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image5">
                 </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
             </div>
+
+            <span class="break"></span>
+
+            <div class="thumbnails" id="thumbnailContainer">
+                <img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image 1" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image 2" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image 3" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image 4" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image 5" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image 6" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image 7" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image 8" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image 9" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image 10" onclick="showMainImage(this)">
+            </div>
+        </div>
+
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="popupImage" alt="Popup Image">
         </div>
         
         <!-- 길안내 -->
@@ -657,23 +783,74 @@ html_content = '''
         });
     </script>
 
+    <!-- FIXME: 241007 썸네일 1번을 눌러 1번 사진을 선택하고 좌우 버튼으로 메인이미지 변경 후 팝업을 띄우면 -->
+    <!-- 좌우 버튼으로 바꾼 사진이 아닌 썸네일로 눌렀던 사진이 뜨는 버그 있음 -->
+    <!-- "ChatGPT HTML 이미지 슬라이더 코드" 부분 참조 -->
     <script>
-        let currentIndex = 0;
+        let currentSlide = 0;
 
-        function moveSlide(step) {
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-            currentIndex = (currentIndex + step + totalSlides) % totalSlides;
-            const slider = document.querySelector('.slider');
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slider img');
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].style.display = 'block';
+            mainImage = mainSlider.querySelector('img');
+        }
+    </script>
+
+    <script>
+        // 썸네일 클릭 시 메인 이미지 변경 함수
+        function showMainImage(thumbnail) {
+            const mainSlider = document.getElementById('mainSlider');
+            const mainImage = mainSlider.querySelector('img');
+            mainImage.src = thumbnail.src;
         }
 
-        // Initialize the slider
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelectorAll('.slide');
-            if (slides.length > 0) {
-                setInterval(() => moveSlide(1), 3000);
-            }
+        // 메인 이미지 클릭 시 팝업으로 크게 보기
+        const mainSliderElement = document.getElementById('mainSlider');
+        mainSliderElement.addEventListener('click', function() {
+            const modal = document.getElementById('imageModal');
+            const popupImage = document.getElementById('popupImage');
+            const mainImage = mainSliderElement.querySelector('img');
+            popupImage.src = mainImage.src;
+            modal.style.display = 'flex';
+        });
+
+        // 모달 닫기 함수
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        // 썸네일 드래그 스크롤 기능 추가
+        const thumbnails = document.getElementById('thumbnailContainer');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        thumbnails.addEventListener('mousedown', (e) => {
+            isDown = true;
+            thumbnails.classList.add('active');
+            startX = e.pageX - thumbnails.offsetLeft;
+            scrollLeft = thumbnails.scrollLeft;
+        });
+
+        thumbnails.addEventListener('mouseleave', () => {
+            isDown = false;
+            thumbnails.classList.remove('active');
+        });
+
+        thumbnails.addEventListener('mouseup', () => {
+            isDown = false;
+            thumbnails.classList.remove('active');
+        });
+
+        thumbnails.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - thumbnails.offsetLeft;
+            const walk = (x - startX) * 3; // 스크롤 속도 조절
+            thumbnails.scrollLeft = scrollLeft - walk;
         });
     </script>
 
