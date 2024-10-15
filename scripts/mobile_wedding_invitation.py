@@ -640,14 +640,14 @@ html_content = '''
 
             <div class="slider-container">
                 <div class="slider" id="mainSlider">
-                    <img src="https://github.com/user-attachments/assets/e3743e72-ea3b-4459-9b6d-dd161e25784b" alt="Image1">
-                    <img src="https://github.com/user-attachments/assets/e6ff04a7-2c29-4ee5-8763-bf3619a8a279" alt="Image2">
-                    <img src="https://github.com/user-attachments/assets/34acf33f-f93e-49a3-8cfd-5c0cc1facefa" alt="Image3">
-                    <img src="https://github.com/user-attachments/assets/c2a5f16e-44ac-4d92-8e25-87959559b174" alt="Image4">
-                    <img src="https://github.com/user-attachments/assets/83b4dccf-4a67-46d8-9554-84830c1c9c37" alt="Image5">
-                    <img src="https://github.com/user-attachments/assets/13e9791d-f939-412c-a655-49aaeea1f82b" alt="Image6">
-                    <img src="https://github.com/user-attachments/assets/6e67201c-396a-4a61-ac3a-fc1fcb26dd13" alt="Image7">
-                    <img src="https://github.com/user-attachments/assets/36bd166f-fd9e-4285-85ba-17646689a80b" alt="Image8">
+                    <img src="https://github.com/user-attachments/assets/5c2895f7-d1ea-40ac-a93c-9dfa246e71b7" alt="Image1">
+                    <img src="https://github.com/user-attachments/assets/e40df9f7-eb2e-49b5-9c37-ce69428437cf" alt="Image2">
+                    <img src="https://github.com/user-attachments/assets/04d59236-fab2-43bc-b0a4-c8d5e7ec5a0e" alt="Image3">
+                    <img src="https://github.com/user-attachments/assets/efa7d4ae-102e-4c2a-a68c-337802289b9a" alt="Image4">
+                    <img src="https://github.com/user-attachments/assets/a3a54774-4a74-4c6c-9dcb-f0acebfcbadb" alt="Image5">
+                    <img src="https://github.com/user-attachments/assets/baad8058-4a90-464a-9f6c-aaa2c40aa7a8" alt="Image6">
+                    <img src="https://github.com/user-attachments/assets/5d3b548a-deb9-4c8f-b0ae-4cd826711bef" alt="Image7">
+                    <img src="https://github.com/user-attachments/assets/7ae23853-d8dd-4cb7-9d59-313d9a2276ae" alt="Image8">
                 </div>
                 <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
                 <a class="next" onclick="changeSlide(1)">&#10095;</a>
@@ -656,14 +656,14 @@ html_content = '''
             <span class="break"></span>
 
             <div class="thumbnails" id="thumbnailContainer">
-                <img src="https://github.com/user-attachments/assets/e3743e72-ea3b-4459-9b6d-dd161e25784b" alt="Thumbnail1" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/e6ff04a7-2c29-4ee5-8763-bf3619a8a279" alt="Thumbnail2" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/34acf33f-f93e-49a3-8cfd-5c0cc1facefa" alt="Thumbnail3" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/c2a5f16e-44ac-4d92-8e25-87959559b174" alt="Thumbnail4" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/83b4dccf-4a67-46d8-9554-84830c1c9c37" alt="Thumbnail5" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/13e9791d-f939-412c-a655-49aaeea1f82b" alt="Thumbnail6" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/6e67201c-396a-4a61-ac3a-fc1fcb26dd13" alt="Thumbnail7" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/36bd166f-fd9e-4285-85ba-17646689a80b" alt="Thumbnail8" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/5c2895f7-d1ea-40ac-a93c-9dfa246e71b7" alt="Thumbnail1" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/e40df9f7-eb2e-49b5-9c37-ce69428437cf" alt="Thumbnail2" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/04d59236-fab2-43bc-b0a4-c8d5e7ec5a0e" alt="Thumbnail3" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/efa7d4ae-102e-4c2a-a68c-337802289b9a" alt="Thumbnail4" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/a3a54774-4a74-4c6c-9dcb-f0acebfcbadb" alt="Thumbnail5" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/baad8058-4a90-464a-9f6c-aaa2c40aa7a8" alt="Thumbnail6" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/5d3b548a-deb9-4c8f-b0ae-4cd826711bef" alt="Thumbnail7" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/7ae23853-d8dd-4cb7-9d59-313d9a2276ae" alt="Thumbnail8" onclick="showMainImage(this)">
             </div>
         </div>
 
@@ -777,10 +777,10 @@ html_content = '''
                                 document.getElementById("greeting").classList.remove("greeting-grow");
                                 document.getElementById("greeting").style.transform = "scale(1)";
                             }, 800);
-                        }, 100);
-                    }, 250);
-                }, 200);
-            }, 100);
+                        }, 1000);
+                    }, 2500);
+                }, 2000);
+            }, 1000);
         });
     </script>
 
