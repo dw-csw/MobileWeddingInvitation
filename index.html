@@ -631,11 +631,14 @@
 
             <div class="slider-container">
                 <div class="slider" id="mainSlider">
-                    <img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image1">
-                    <img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image2">
-                    <img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image3">
-                    <img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image4">
-                    <img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image5">
+                    <img src="https://github.com/user-attachments/assets/e3743e72-ea3b-4459-9b6d-dd161e25784b" alt="Image1">
+                    <img src="https://github.com/user-attachments/assets/e6ff04a7-2c29-4ee5-8763-bf3619a8a279" alt="Image2">
+                    <img src="https://github.com/user-attachments/assets/34acf33f-f93e-49a3-8cfd-5c0cc1facefa" alt="Image3">
+                    <img src="https://github.com/user-attachments/assets/c2a5f16e-44ac-4d92-8e25-87959559b174" alt="Image4">
+                    <img src="https://github.com/user-attachments/assets/83b4dccf-4a67-46d8-9554-84830c1c9c37" alt="Image5">
+                    <img src="https://github.com/user-attachments/assets/13e9791d-f939-412c-a655-49aaeea1f82b" alt="Image6">
+                    <img src="https://github.com/user-attachments/assets/6e67201c-396a-4a61-ac3a-fc1fcb26dd13" alt="Image7">
+                    <img src="https://github.com/user-attachments/assets/36bd166f-fd9e-4285-85ba-17646689a80b" alt="Image8">
                 </div>
                 <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
                 <a class="next" onclick="changeSlide(1)">&#10095;</a>
@@ -644,16 +647,14 @@
             <span class="break"></span>
 
             <div class="thumbnails" id="thumbnailContainer">
-                <img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image 1" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image 2" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image 3" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image 4" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image 5" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/4f6bd269-c5cd-4b7d-9340-c2709bf66682" alt="Image 6" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/e0d2b383-0898-412a-b7f1-2a48e02e7702" alt="Image 7" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/628dddb3-0878-460d-a984-d94484844314" alt="Image 8" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/95ceb200-526d-4957-919b-e665087a5af7" alt="Image 9" onclick="showMainImage(this)">
-                <img src="https://github.com/user-attachments/assets/e658e12d-3f6b-49ad-88a4-4922f324662c" alt="Image 10" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/e3743e72-ea3b-4459-9b6d-dd161e25784b" alt="Thumbnail1" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/e6ff04a7-2c29-4ee5-8763-bf3619a8a279" alt="Thumbnail2" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/34acf33f-f93e-49a3-8cfd-5c0cc1facefa" alt="Thumbnail3" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/c2a5f16e-44ac-4d92-8e25-87959559b174" alt="Thumbnail4" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/83b4dccf-4a67-46d8-9554-84830c1c9c37" alt="Thumbnail5" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/13e9791d-f939-412c-a655-49aaeea1f82b" alt="Thumbnail6" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/6e67201c-396a-4a61-ac3a-fc1fcb26dd13" alt="Thumbnail7" onclick="showMainImage(this)">
+                <img src="https://github.com/user-attachments/assets/36bd166f-fd9e-4285-85ba-17646689a80b" alt="Thumbnail8" onclick="showMainImage(this)">
             </div>
         </div>
 
@@ -768,33 +769,38 @@
                                 document.getElementById("greeting").style.transform = "scale(1)";
                             }, 800);
                         }, 100);
-                    }, 2500);
-                }, 2000);
-            }, 1000);
+                    }, 250);
+                }, 200);
+            }, 100);
         });
     </script>
 
     <!-- FIXME: 241007 썸네일 1번을 눌러 1번 사진을 선택하고 좌우 버튼으로 메인이미지 변경 후 팝업을 띄우면 -->
     <!-- 좌우 버튼으로 바꾼 사진이 아닌 썸네일로 눌렀던 사진이 뜨는 버그 있음 -->
     <!-- "ChatGPT HTML 이미지 슬라이더 코드" 부분 참조 -->
+
     <script>
         let currentSlide = 0;
+        const mainSlider = document.getElementById('mainSlider');
+        const mainImage = mainSlider.querySelector('img');
+        const slides = document.querySelectorAll('.slider img');
 
         function changeSlide(direction) {
-            const slides = document.querySelectorAll('.slider img');
             slides[currentSlide].style.display = 'none';
             currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            
             slides[currentSlide].style.display = 'block';
-            mainImage = mainSlider.querySelector('img');
+            mainImage.src = slides[currentSlide].src
+            console.log(' >> 1 Current slide index:', currentSlide);
         }
-    </script>
 
-    <script>
-        // 썸네일 클릭 시 메인 이미지 변경 함수
         function showMainImage(thumbnail) {
-            const mainSlider = document.getElementById('mainSlider');
-            const mainImage = mainSlider.querySelector('img');
+            // 메인 이미지의 src를 썸네일의 src로 변경
             mainImage.src = thumbnail.src;
+
+            // currentSlide 값을 업데이트하여 좌우 버튼과 동기화
+            currentSlide = Array.from(slides).findIndex(slide => slide.src === thumbnail.src);
+            console.log(' >> 2 Current slide index:', currentSlide);
         }
 
         // 메인 이미지 클릭 시 팝업으로 크게 보기
@@ -802,7 +808,10 @@
         mainSliderElement.addEventListener('click', function() {
             const modal = document.getElementById('imageModal');
             const popupImage = document.getElementById('popupImage');
-            const mainImage = mainSliderElement.querySelector('img');
+
+            const slides = document.querySelectorAll('.slider img'); // 슬라이더 안의 모든 이미지
+            const mainImage = slides[currentSlide]; // 현재 슬라이드 이미지 가져오기
+
             popupImage.src = mainImage.src;
             modal.style.display = 'flex';
         });
