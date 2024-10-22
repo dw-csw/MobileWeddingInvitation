@@ -244,7 +244,6 @@
             width: 80%;
             max-width: 800px;
             margin: 0 auto;
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -252,6 +251,7 @@
 
         .slider {
             display: flex;
+            overflow: hidden;
             transition: transform 0.5s ease-in-out;
             width: 100%;
         }
@@ -260,10 +260,10 @@
             width: 100%;
             max-width: 600px;
             height: auto;
-            display: block;
+            display: none;
         }
 
-        .slider img:first-child {
+        .slider img.active {
             display: block;
         }
 
@@ -631,6 +631,7 @@
 
             <div class="slider-container">
                 <div class="slider" id="mainSlider">
+                    <img src="https://github.com/user-attachments/assets/fe8e9f11-58b2-4c61-ac2f-e01de76ab039" alt="Image0">
                     <img src="https://github.com/user-attachments/assets/5c2895f7-d1ea-40ac-a93c-9dfa246e71b7" alt="Image1">
                     <img src="https://github.com/user-attachments/assets/e40df9f7-eb2e-49b5-9c37-ce69428437cf" alt="Image2">
                     <img src="https://github.com/user-attachments/assets/04d59236-fab2-43bc-b0a4-c8d5e7ec5a0e" alt="Image3">
@@ -768,10 +769,10 @@
                                 document.getElementById("greeting").classList.remove("greeting-grow");
                                 document.getElementById("greeting").style.transform = "scale(1)";
                             }, 800);
-                        }, 1000);
-                    }, 2500);
-                }, 2000);
-            }, 1000);
+                        }, 100);
+                    }, 250);
+                }, 200);
+            }, 100);
         });
     </script>
 
@@ -780,27 +781,59 @@
     <!-- "ChatGPT HTML 이미지 슬라이더 코드" 부분 참조 -->
 
     <script>
-        let currentSlide = 0;
+        let currentSlide = 1;
         const mainSlider = document.getElementById('mainSlider');
         const mainImage = mainSlider.querySelector('img');
         const slides = document.querySelectorAll('.slider img');
+        const thumbnails = document.querySelectorAll('#thumbnailContainer img');
+
+        slides[currentSlide].classList.add('active');
+
+        // 모든 슬라이드를 초기화하는 함수
+        function resetSlides() {
+            slides.forEach(slide => {
+                slide.style.display = 'none'; // 슬라이드를 기본적으로 숨김
+                slide.style.opacity = '0';    // 슬라이드를 보이지 않게 함
+                slide.style.transition = 'opacity 0.5s ease-in-out'; // 전환 효과 추가
+            });
+        }
 
         function changeSlide(direction) {
-            slides[currentSlide].style.display = 'none';
-            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            resetSlides(); // 모든 슬라이드를 숨김
             
-            slides[currentSlide].style.display = 'block';
-            mainImage.src = slides[currentSlide].src
-            console.log(' >> 1 Current slide index:', currentSlide);
+            console.log('Debug 3', currentSlide, direction);
+
+            if (currentSlide == 1 && direction == -1) {
+                currentSlide = 8
+            }
+            else if (currentSlide == 8 && direction == 1) {
+                currentSlide = 1
+            }
+            else {
+                currentSlide = (currentSlide + direction + slides.length) % slides.length; // 슬라이드 순환
+            }
+            slides[currentSlide].style.display = 'block'; // 선택된 슬라이드만 표시
+            setTimeout(() => {
+                slides[currentSlide].style.opacity = '1'; // 슬라이드를 점차적으로 보이게 함
+            }, 10); // 살짝 지연을 주어 display 전환 후 opacity 전환이 일어나게 함
+
+            mainImage.src = slides[currentSlide].src;
+            console.log('Current slide index:', currentSlide);
         }
 
         function showMainImage(thumbnail) {
-            // 메인 이미지의 src를 썸네일의 src로 변경
-            mainImage.src = thumbnail.src;
+            resetSlides(); // 모든 슬라이드를 숨김
+            mainImage.src = thumbnail.src; // 메인 이미지의 src를 썸네일의 src로 변경
 
-            // currentSlide 값을 업데이트하여 좌우 버튼과 동기화
-            currentSlide = Array.from(slides).findIndex(slide => slide.src === thumbnail.src);
-            console.log(' >> 2 Current slide index:', currentSlide);
+            currentSlide = Array.from(thumbnails).indexOf(thumbnail) + 1;
+            
+            // 선택된 슬라이드만 보이게 함
+            if (currentSlide !== -1) {
+                slides[currentSlide].style.display = 'block';
+                slides[currentSlide].style.opacity = '1';
+            }
+
+            console.log('Thumbnail clicked, current slide index:', currentSlide);
         }
 
         // 메인 이미지 클릭 시 팝업으로 크게 보기
@@ -823,34 +856,34 @@
         }
 
         // 썸네일 드래그 스크롤 기능 추가
-        const thumbnails = document.getElementById('thumbnailContainer');
+        const thumbnails4drag = document.getElementById('thumbnailContainer');
         let isDown = false;
         let startX;
         let scrollLeft;
 
-        thumbnails.addEventListener('mousedown', (e) => {
+        thumbnails4drag.addEventListener('mousedown', (e) => {
             isDown = true;
-            thumbnails.classList.add('active');
-            startX = e.pageX - thumbnails.offsetLeft;
-            scrollLeft = thumbnails.scrollLeft;
+            thumbnails4drag.classList.add('active');
+            startX = e.pageX - thumbnails4drag.offsetLeft;
+            scrollLeft = thumbnails4drag.scrollLeft;
         });
 
-        thumbnails.addEventListener('mouseleave', () => {
+        thumbnails4drag.addEventListener('mouseleave', () => {
             isDown = false;
-            thumbnails.classList.remove('active');
+            thumbnails4drag.classList.remove('active');
         });
 
-        thumbnails.addEventListener('mouseup', () => {
+        thumbnails4drag.addEventListener('mouseup', () => {
             isDown = false;
-            thumbnails.classList.remove('active');
+            thumbnails4drag.classList.remove('active');
         });
 
-        thumbnails.addEventListener('mousemove', (e) => {
+        thumbnails4drag.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
-            const x = e.pageX - thumbnails.offsetLeft;
+            const x = e.pageX - thumbnails4drag.offsetLeft;
             const walk = (x - startX) * 3; // 스크롤 속도 조절
-            thumbnails.scrollLeft = scrollLeft - walk;
+            thumbnails4drag.scrollLeft = scrollLeft - walk;
         });
     </script>
 
