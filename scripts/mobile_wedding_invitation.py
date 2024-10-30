@@ -277,27 +277,27 @@ html_content = '''
         }
 
         .prev, .next {
-            cursor: pointer;
             position: absolute;
             top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.2); /* 반투명한 검정 배경 */
             color: white;
-            font-weight: bold;
-            font-size: 24px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 50%; /* 둥근 모양 */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* 그림자 */
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
         .prev {
-            left: 0;
+            left: -30px;
             border-radius: 3px 0 0 3px;
         }
 
         .next {
-            right: 0;
+            right: -30px;
             border-radius: 3px 0 0 3px;
         }
 
@@ -315,7 +315,7 @@ html_content = '''
             height: 100px;
             object-fit: cover;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: opacity 0.5s ease-in-out;
         }
 
         .thumbnails img:hover {
@@ -331,7 +331,7 @@ html_content = '''
             position: fixed;
             z-index: 1000; /* 모달을 최상위로 설정 */
             left: 0;
-            top: 0;
+            top: 5%;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
@@ -339,8 +339,23 @@ html_content = '''
             align-items: center;
         }
 
+        @media (max-width: 460px) {
+            .modal {
+                display: none; /* 기본적으로 숨김 */
+                position: fixed;
+                z-index: 1000; /* 모달을 최상위로 설정 */
+                left: 0;
+                top: 4%;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.8);
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
         .modal-content {
-            max-width: 80%;
+            max-width: 100%;
             max-height: 80%;
             position: relative;
         }
@@ -348,8 +363,8 @@ html_content = '''
         /* 닫기 버튼 스타일 */
         .close {
             position: absolute;
-            top: calc(50% - 400px);
-            left: calc(50% + 250px);
+            top: calc(50% - 250px);
+            left: calc(50% + 150px);
             z-index: 1100;
             color: white;
             font-size: 25px;
@@ -364,8 +379,8 @@ html_content = '''
 
         @media (max-width: 460px) {
             .close {
-                top: calc(50% - 190px);
-                left: calc(50% + 110px);
+                top: calc(50% - 240px);
+                left: calc(50% + 150px);
                 z-index: 1100;
                 color: white;
                 font-size: 20px;
@@ -376,24 +391,6 @@ html_content = '''
                 height: 30px;
                 border-radius: 30%;
             }
-
-            .modal-content {
-                max-width: 80%;
-                max-height: 80%;
-                position: relative;
-            }
-        }
-
-        button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 24px;
         }
 
         .content {
@@ -779,9 +776,9 @@ html_content = '''
                                 document.getElementById("greeting").style.transform = "scale(1)";
                             }, 800);
                         }, 100);
-                    }, 250);
-                }, 200);
-            }, 100);
+                    }, 2500);
+                }, 2000);
+            }, 1000);
         });
     </script>
 
