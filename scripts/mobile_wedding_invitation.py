@@ -13,7 +13,8 @@ html_content = '''
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>모바일 청첩장</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>천선우 ♥ 김은혜 결혼합니다</title>
     <style>
         @font-face {
             font-family: 'YeojuCeramic';
@@ -423,11 +424,23 @@ html_content = '''
         }
 
         .account_container {
+            overflow: hidden;
             width: 100%;
             max-width: 470px;
+            max-height: 0;
             display: inline-block;
             text-align: center;
+            transition: opacity 0.5s ease, visibility 0.3s ease, max-height 0.5s ease, padding 0.5s ease;
             margin: 0px;
+            opacity: 0;
+            visibility: visible;
+            padding: -10px;
+        }
+
+        .account_container.expanded {
+            max-height: 300px;
+            opacity: 1;
+            padding: 0px;
         }
 
         .copy_container {
@@ -435,6 +448,54 @@ html_content = '''
             background-color: #FFFFFF;
             display: inline-block;
             text-align: center;
+        }
+
+        #GROOM_toggleButton {
+            background-color: #E7E2D5;
+            color: #777777;
+            padding: 10px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'KimjungchulMyungjo', sans-serif;
+        }
+
+        #GROOM_toggleButton::after {
+            content: " ▼"; /* 기본 아이콘 */
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        #GROOM_toggleButton.expanded::after {
+            content: " ▲"; /* 펼쳤을 때 아이콘 변경 */
+        }
+
+        #BRIDE_toggleButton {
+            background-color: #E7E2D5;
+            color: #777777;
+            padding: 10px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'KimjungchulMyungjo', sans-serif;
+        }
+
+        #BRIDE_toggleButton::after {
+            content: " ▼"; /* 기본 아이콘 */
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        #BRIDE_toggleButton.expanded::after {
+            content: " ▲"; /* 펼쳤을 때 아이콘 변경 */
         }
 
         .item {
@@ -482,8 +543,7 @@ html_content = '''
             font-family: 'GwangyangSunshine', sans-serif;
             font-size: 30px;
             color: #999999;
-            line-height: 0.5;
-            font-weight: 100;
+            font-weight: bold;
         }
         
         sub_info_thin {
@@ -500,6 +560,14 @@ html_content = '''
             color: #777777;
             line-height: 0.1;
             font-weight: 900;
+        }
+
+        copy_right_thin {
+            font-family: 'KimjungchulMyungjo', sans-serif;
+            font-size: 13px;
+            color: #777777;
+            line-height: 0.1;
+            font-weight: 200;
         }
 
         sub_info_withbg {
@@ -542,6 +610,43 @@ html_content = '''
         .halftap {
             display: block;
             margin: 30px;
+        }
+
+        .last-image-container {
+            position: relative;
+            width: 600px;
+        }
+
+        .overlay-text {
+        font-family: 'KimjungchulMyungjo', sans-serif;
+            position: absolute;
+            top: 22%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+            font-weight: 590;
+            line-height: 1.5;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 추가 */
+        }
+
+        .copy-button {
+            display: inline-flex;
+            background-color: #E7E2D5;
+            color: #777777;
+            padding: 10px 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'KimjungchulMyungjo', sans-serif;
+        }
+
+        .copy-button i {
+            margin-right: 8px; /* 아이콘과 텍스트 사이 간격 */
+            font-size: 18px; /* 아이콘 크기 */
         }
         
         .break {
@@ -617,6 +722,8 @@ html_content = '''
 
         <div class="content">
             <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px;">
+            <span class="break"></span>
+            <img src="https://github.com/user-attachments/assets/f4cfbb6c-3792-4b1a-bd04-9de8bf7ab237" alt="메인 이미지" class="main-img">
             <p>
                 <parent_name>천병찬 ㆍ 최동숙의</parent_name> 장남 <groom_bride_name>선우</groom_bride_name>
             </p>
@@ -669,8 +776,8 @@ html_content = '''
             <span class="close" onclick="closeModal()">&times;</span>
             <img class="modal-content" id="popupImage" alt="Popup Image">
         </div>
-        
-        <!-- 길안내 -->
+
+        <!-- 지도 연결 -->
         <div class="content">
             <p></p>
             <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
@@ -701,14 +808,18 @@ html_content = '''
                 </div>
         </div>
         
-        <!-- 마음 전하는 곳 -->
+        <!-- 길 안내 -->
         <div class="content">
             <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
             <div class="details">
                 <span class="halftap"></span>
-                <main_info>주소</main_info>
+                <main_info>자가용</main_info>
                 <span class="break"></span>
                 <sub_info_thin>대전광역시 유성구 온천북로 77<br>(봉명동 692-4)<br>T. 042-825-7070</sub_info_thin>
+                <span class="halfbreak"></span>
+                <sub_info_thin>400여대 수용 가능한 주차타워가 마련되어 있습니다.</sub_info_thin>
+                <span class="halfbreak"></span>
+                <sub_info_thin>(1층에서 주차정산 하셔야 2시간30분 무료주차 가능합니다.)</sub_info_thin>
                 <span class="break"></span>
 
                 <span class="tap"></span>
@@ -724,14 +835,58 @@ html_content = '''
                 <span class="break"></span>
             </div>
         </div>
-        
+
+        <!-- 화환 거절 -->
+        <div class="content">
+            <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
+            <div class="details">
+                <span class="halftap"></span>
+                <main_info>화환 거절</main_info>
+                <span class="break"></span>
+                <sub_info_thin>축하하는 마음으로 보내주시는</sub_info_thin>
+                <span class="halfbreak"></span>
+                <sub_info_thin>화환은 환경보호를 위해</sub_info_thin>
+                <span class="halfbreak"></span>
+                <sub_info_thin>정중히 사양하고자 합니다.</sub_info_thin>
+                <span class="halfbreak"></span>
+                <sub_info_thin>마음으로만 감사히 받겠습니다.</sub_info_thin>
+                <span class="break"></span>
+            </div>
+        </div>
+
+        <!-- 식사 안내 -->
+        <div class="content">
+            <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
+            <div class="details">
+                <span class="halftap"></span>
+                <main_info>식사 안내</main_info>
+                <span class="break"></span>
+                <sub_info_thin>식사는 웨딩홀 2층에서 뷔페식으로 진행됩니다.</sub_info_thin>
+                <span class="halfbreak"></span>
+                <sub_info_thin>식권을 꼭 지참하셔서 맛있게 식사하시기 바랍니다.</sub_info_thin>
+                <span class="halfbreak"></span>
+                <sub_info_thin>식사시간은 예식 30분 전부터 총 2시간입니다.</sub_info_thin>
+                <span class="break"></span>
+            </div>
+        </div>
+
+        <!-- 마음 전하는 곳 -->
         <div class="content">
             <img src="https://github.com/user-attachments/assets/cf80fb23-0b6d-4f01-9cff-077d2703fd44" alt="구분 기호" style="width: 100%; max-width: 500px; class="separate-img"">
             <span class="halftap"></span>
             <main_info>마음 전하실 곳</main_info>
+            <span class="break"></span>
+            <sub_info_thin>참석이 어려우신 분들을 위해</sub_info_thin>
+            <span class="halfbreak"></span>
+            <sub_info_thin>계좌번호를 기재하였습니다.</sub_info_thin>
+            <span class="halfbreak"></span>
+            <sub_info_thin>너그러운 마음으로 양해 부탁드립니다.</sub_info_thin>
+            <span class="halftap"></span>
 
             <span class="break"></span>
-            <div class="account_container">
+            <button id="GROOM_toggleButton" onclick="GROOM_toggleAccountInfo()">신랑측 마음 전하실 곳</button>
+            <span class="break"></span>
+            <div class="account_container" id="GROOM_accountContainer">
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;신랑</sub_info_thin> <sub_info_bold>천선우</sub_info_bold> 
                 </div>
@@ -739,10 +894,26 @@ html_content = '''
                     <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>603-311890-59726&nbsp;&nbsp;</sub_info_bold>
                     <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
                 </div>
+                <div class="account_name_container">
+                    <sub_info_thin>&nbsp;&nbsp;아버지</sub_info_thin> <sub_info_bold>천병찬</sub_info_bold> 
+                </div>
+                <div class="clickcopy" onclick="copyText('604-317288-37098')">
+                    <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>604-317288-37098&nbsp;&nbsp;</sub_info_bold>
+                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                </div>
+                <div class="account_name_container">
+                    <sub_info_thin>&nbsp;&nbsp;어머니</sub_info_thin> <sub_info_bold>최동숙</sub_info_bold> 
+                </div>
+                <div class="clickcopy" onclick="copyText('601-910789-24196")">
+                    <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>601-910789-24196&nbsp;&nbsp;</sub_info_bold>
+                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                </div>
             </div>
 
+            <span class="halfbreak"></span>
+            <button id="BRIDE_toggleButton" onclick="BRIDE_toggleAccountInfo()">신부측 마음 전하실 곳</button>
             <span class="break"></span>
-            <div class="account_container">
+            <div class="account_container" id="BRIDE_accountContainer">
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;신부</sub_info_thin> <sub_info_bold>김은혜</sub_info_bold> 
                 </div>
@@ -750,7 +921,41 @@ html_content = '''
                     <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>719203-83-374781&nbsp;&nbsp;</sub_info_bold>
                     <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
                 </div>
+                <div class="account_name_container">
+                    <sub_info_thin>&nbsp;&nbsp;아버지</sub_info_thin> <sub_info_bold>김헌수</sub_info_bold> 
+                </div>
+                <div class="clickcopy" onclick="copyText('76781-87-549768')">
+                    <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>76781-87-549768&nbsp;&nbsp;</sub_info_bold>
+                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                </div>
+                <div class="account_name_container">
+                    <sub_info_thin>&nbsp;&nbsp;어머니</sub_info_thin> <sub_info_bold>원지영</sub_info_bold> 
+                </div>
+                <div class="clickcopy" onclick="copyText('71342-82-429461')">
+                    <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>71342-82-429461&nbsp;&nbsp;</sub_info_bold>
+                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                </div>
             </div>
+        </div>
+
+        <!-- 맺음 인사 -->
+        <div class="content">
+            <div class="last-image-container">
+                <img src="https://github.com/user-attachments/assets/db1a5013-43e1-4df1-961a-015f50b4d3bd" alt="메인 이미지" class="main-img">
+                <div class="overlay-text">
+                    축하해주신 모든 분들께 감사드리며
+                    <br>
+                    보답하는 마음으로 행복하게 잘 살겠습니다.
+                </div>
+                <div class="details">
+                    <span class="halftap"></span>
+                    <button class="copy-button" onclick="copyCurrentLink()">
+                        <i class="fas fa-link"></i> 링크주소 복사하기
+                    </button>
+                </div>
+            </div>
+            <span class="break"></span>
+            <copy_right_thin>Copyright 2024. DearWorld. All rights reserved</copy_right_thin>
         </div>
     </div>
     
@@ -913,6 +1118,55 @@ html_content = '''
                 observer.observe(content);
             });
         });
+    </script>
+
+    <script>
+        function GROOM_toggleAccountInfo() {
+            const GROOM_accountContainer = document.getElementById("GROOM_accountContainer");
+            const GROOM_toggleButton = document.getElementById("GROOM_toggleButton");
+
+            GROOM_accountContainer.classList.toggle("expanded");
+
+            // 버튼 상태에 따라 클래스 추가/제거
+            GROOM_toggleButton.classList.toggle("expanded");
+
+            // 버튼 텍스트 변경
+            if (GROOM_toggleButton.classList.contains("expanded")) {
+                GROOM_toggleButton.textContent = "내용 숨기기";
+            } else {
+                GROOM_toggleButton.textContent = "신랑측 마음 전하실 곳";
+            }
+        }
+    </script>
+
+    <script>
+        function BRIDE_toggleAccountInfo() {
+            const BRIDE_accountContainer = document.getElementById("BRIDE_accountContainer");
+            const BRIDE_toggleButton = document.getElementById("BRIDE_toggleButton");
+
+            BRIDE_accountContainer.classList.toggle("expanded");
+
+            // 버튼 상태에 따라 클래스 추가/제거
+            BRIDE_toggleButton.classList.toggle("expanded");
+
+            // 버튼 텍스트 변경
+            if (BRIDE_toggleButton.classList.contains("expanded")) {
+                BRIDE_toggleButton.textContent = "내용 숨기기";
+            } else {
+                BRIDE_toggleButton.textContent = "신부측 마음 전하실 곳";
+            }
+        }
+    </script>
+
+    <script>
+        function copyCurrentLink() {
+            const link = window.location.href; // 현재 페이지 링크 가져오기
+            navigator.clipboard.writeText(link).then(() => {
+                alert('모바일 청첩장 링크가 복사되었습니다!'); // 링크 복사 완료 후 알림
+            }).catch(err => {
+                console.error('링크 복사 실패:', err);
+            });
+        }
     </script>
 
     <script>
