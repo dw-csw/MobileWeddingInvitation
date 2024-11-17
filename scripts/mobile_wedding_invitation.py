@@ -629,7 +629,7 @@ html_content = '''
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 추가 */
         }
 
-        @media (max-width: 460px) {
+        @media (max-width: 430px) {
             .overlay-text {
             font-family: 'KimjungchulMyungjo', sans-serif;
                 position: absolute;
@@ -959,7 +959,7 @@ html_content = '''
                 <div class="overlay-text">
                     축하해주신 모든 분들께 감사드리며
                     <br>
-                    보답하는 마음으로 행복하게 잘 살겠습니다.
+                    보답하는 마음으로 행복하게 살겠습니다.
                 </div>
                 <div class="details">
                     <span class="halftap"></span>
