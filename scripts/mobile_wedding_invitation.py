@@ -633,8 +633,8 @@ html_content = '''
             .overlay-text {
             font-family: 'KimjungchulMyungjo', sans-serif;
                 position: absolute;
-                top: 20%;
-                left: 41%;
+                top: 19%;
+                left: 39%;
                 transform: translate(-50%, -50%);
                 color: white;
                 font-size: 12px;
