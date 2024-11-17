@@ -614,7 +614,6 @@ html_content = '''
 
         .last-image-container {
             position: relative;
-            width: 600px;
         }
 
         .overlay-text {
@@ -628,6 +627,21 @@ html_content = '''
             font-weight: 590;
             line-height: 1.5;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 추가 */
+        }
+
+        @media (max-width: 460px) {
+            .overlay-text {
+            font-family: 'KimjungchulMyungjo', sans-serif;
+                position: absolute;
+                top: 21%;
+                left: 42%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 12px;
+                font-weight: 300;
+                line-height: 1.5;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 텍스트 그림자 추가 */
+            }
         }
 
         .copy-button {
@@ -981,9 +995,9 @@ html_content = '''
                                 document.getElementById("greeting").style.transform = "scale(1)";
                             }, 800);
                         }, 100);
-                    }, 2500);
-                }, 2000);
-            }, 1000);
+                    }, 250);
+                }, 200);
+            }, 100);
         });
     </script>
 
