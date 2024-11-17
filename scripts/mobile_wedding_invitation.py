@@ -995,9 +995,9 @@ html_content = '''
                                 document.getElementById("greeting").style.transform = "scale(1)";
                             }, 800);
                         }, 100);
-                    }, 250);
-                }, 200);
-            }, 100);
+                    }, 2500);
+                }, 2000);
+            }, 1000);
         });
     </script>
 
