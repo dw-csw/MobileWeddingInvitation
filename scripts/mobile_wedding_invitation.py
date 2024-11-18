@@ -332,7 +332,7 @@ html_content = '''
             position: fixed;
             z-index: 1000; /* 모달을 최상위로 설정 */
             left: 0;
-            top: 5%;
+            top: -4%;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.8);
@@ -346,7 +346,7 @@ html_content = '''
                 position: fixed;
                 z-index: 1000; /* 모달을 최상위로 설정 */
                 left: 0;
-                top: 4%;
+                top: -6%;
                 width: 100%;
                 height: 100%;
                 background-color: rgba(0, 0, 0, 0.8);
@@ -584,7 +584,6 @@ html_content = '''
         .clickcopy {
             align-items: center;
             margin: 10px;
-            cursor: pointer;
         }
 
         .addloadtap {
@@ -644,7 +643,7 @@ html_content = '''
             }
         }
 
-        .copy-button {
+        .link-copy-button {
             display: inline-flex;
             background-color: #E7E2D5;
             color: #777777;
@@ -658,9 +657,27 @@ html_content = '''
             font-family: 'KimjungchulMyungjo', sans-serif;
         }
 
-        .copy-button i {
+        .link-copy-button i {
             margin-right: 8px; /* 아이콘과 텍스트 사이 간격 */
             font-size: 18px; /* 아이콘 크기 */
+        }
+        
+        .info-copy-button {
+            display: inline-flex;
+            background-color: #E7E2D5;
+            color: #777777;
+            align-items: center;
+            padding: 7px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'KimjungchulMyungjo', sans-serif;
+        }
+        
+        .fas.fa-copy {
+            font-size: 16px;
         }
         
         .break {
@@ -904,23 +921,29 @@ html_content = '''
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;신랑</sub_info_thin> <sub_info_bold>천선우</sub_info_bold> 
                 </div>
-                <div class="clickcopy" onclick="copyText('603-311890-59726')">
+                <div class="clickcopy">
                     <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>603-311890-59726&nbsp;&nbsp;</sub_info_bold>
-                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                    <button class="info-copy-button" onclick="copyText('603-311890-59726')">
+                        <i class="fas fa-copy"></i> 복사
+                    </button>
                 </div>
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;아버지</sub_info_thin> <sub_info_bold>천병찬</sub_info_bold> 
                 </div>
-                <div class="clickcopy" onclick="copyText('604-317288-37098')">
+                <div class="clickcopy">
                     <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>604-317288-37098&nbsp;&nbsp;</sub_info_bold>
-                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                    <button class="info-copy-button" onclick="copyText('604-317288-37098')">
+                        <i class="fas fa-copy"></i> 복사
+                    </button>
                 </div>
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;어머니</sub_info_thin> <sub_info_bold>최동숙</sub_info_bold> 
                 </div>
-                <div class="clickcopy" onclick="copyText('601-910789-24196")">
+                <div class="clickcopy">
                     <sub_info_thin>하나은행</sub_info_thin> <sub_info_bold>601-910789-24196&nbsp;&nbsp;</sub_info_bold>
-                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                    <button class="info-copy-button" onclick="copyText('601-910789-24196')">
+                        <i class="fas fa-copy"></i> 복사
+                    </button>
                 </div>
             </div>
 
@@ -931,23 +954,29 @@ html_content = '''
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;신부</sub_info_thin> <sub_info_bold>김은혜</sub_info_bold> 
                 </div>
-                <div class="clickcopy" onclick="copyText('719203-83-374781')">
+                <div class="clickcopy">
                     <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>719203-83-374781&nbsp;&nbsp;</sub_info_bold>
-                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                    <button class="info-copy-button" onclick="copyText('719203-83-374781')">
+                        <i class="fas fa-copy"></i> 복사
+                    </button>
                 </div>
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;아버지</sub_info_thin> <sub_info_bold>김헌수</sub_info_bold> 
                 </div>
-                <div class="clickcopy" onclick="copyText('76781-87-549768')">
+                <div class="clickcopy">
                     <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>76781-87-549768&nbsp;&nbsp;</sub_info_bold>
-                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                    <button class="info-copy-button" onclick="copyText('76781-87-549768')">
+                        <i class="fas fa-copy"></i> 복사
+                    </button>
                 </div>
                 <div class="account_name_container">
                     <sub_info_thin>&nbsp;&nbsp;어머니</sub_info_thin> <sub_info_bold>원지영</sub_info_bold> 
                 </div>
-                <div class="clickcopy" onclick="copyText('71342-82-429461')">
+                <div class="clickcopy">
                     <sub_info_thin>국민은행</sub_info_thin> <sub_info_bold>71342-82-429461&nbsp;&nbsp;</sub_info_bold>
-                    <sub_info_withbg><img src="https://github.com/user-attachments/assets/6b1b77a1-ded1-4b43-af9f-5bcb47ef5d6a" alt="copy1" style="width: 100%; max-width: 18px;"> 복사</sub_info_withbg>
+                    <button class="info-copy-button" onclick="copyText('71342-82-429461')">
+                        <i class="fas fa-copy"></i> 복사
+                    </button>
                 </div>
             </div>
         </div>
@@ -963,7 +992,7 @@ html_content = '''
                 </div>
                 <div class="details">
                     <span class="halftap"></span>
-                    <button class="copy-button" onclick="copyCurrentLink()">
+                    <button class="link-copy-button" onclick="copyCurrentLink()">
                         <i class="fas fa-link"></i> 링크주소 복사하기
                     </button>
                 </div>
